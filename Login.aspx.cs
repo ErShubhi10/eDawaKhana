@@ -41,7 +41,7 @@ namespace eDawaKhana
 
             if (!string.IsNullOrEmpty(txtLogin.Text.Trim()) && !string.IsNullOrEmpty(txtPassword.Text.Trim()))
             {
-                Response.Redirect("/Webforms/Dashboard", false);
+                Response.Redirect("/Webforms/Dashboard.aspx", false);
                  Context.ApplicationInstance.CompleteRequest();
             }
         }
