@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using eDawaKhana.DataLayer;
+using SSJY.eDawaKhana.Data;
+using SSJY.eDawaKhana.DataObjects;
 
 namespace eDawaKhana.WebForms.User_Management
 {
@@ -46,7 +49,11 @@ namespace eDawaKhana.WebForms.User_Management
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-
+            UserRoles userRoles = new UserRoles();
+            userRoles.RoleName = txtRoleName.Text.Trim();
+            userRoles.CreateTs = DateTime.Now;
+            userRoles.CreatedByUserId = 1;
+            DataRepository.UserRolesProvider.Save(userRoles);
         }
 
         protected void btnReset_Click(object sender, EventArgs e)

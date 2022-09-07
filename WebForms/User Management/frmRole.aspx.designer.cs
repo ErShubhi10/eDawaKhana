@@ -15,13 +15,13 @@ namespace eDawaKhana.WebForms.User_Management
     {
 
         /// <summary>
-        /// txtDepartmentName control.
+        /// txtRoleName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDepartmentName;
+        protected global::System.Web.UI.WebControls.TextBox txtRoleName;
 
         /// <summary>
         /// chkIsActive control.

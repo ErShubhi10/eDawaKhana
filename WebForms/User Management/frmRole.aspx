@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebForms/Admin.Master" AutoEventWireup="true" CodeBehind="frmRole.aspx.cs" Inherits="eDawaKhana.WebForms.User_Management.frmRole" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
-<
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section class="section">
         <div class="row">
@@ -12,7 +12,7 @@
                          <div class="row mb-3">
                             <div class="col-md-6">
                                 <label class="col-sm-2 col-form-label">Role Name </label>
-                                <asp:TextBox ID="txtDepartmentName" runat="server" class="col-sm-8 form-control-sm"></asp:TextBox>
+                                <asp:TextBox ID="txtRoleName" runat="server" class="col-sm-8 form-control-sm"></asp:TextBox>
 
                             </div>
                             <div class="col-md-6">
