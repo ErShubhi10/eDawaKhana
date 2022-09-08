@@ -1,10 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/WebForms/Admin.Master" CodeBehind="frmCreateUser.aspx.cs" Inherits="eDawaKhana.WebForms.User_Management.frmCreateUser" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebForms/Admin.Master" AutoEventWireup="true" CodeBehind="frmNewUser.aspx.cs" Inherits="eDawaKhana.WebForms.User_Management.frmNewUser" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
-
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <asp:ScriptManagerProxy ID="ScriptManagerProxy1" runat="server"></asp:ScriptManagerProxy>
 
-        <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
                 <ContentTemplate>
@@ -58,14 +60,14 @@
                 <h3 class="panel-title">Create new USER </h3>
             </div>
             <div class="panel-body">
-                <div class="row">                    
+                <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="lblSecurtyProfile" class="control-label">Role : </label>
                             <asp:DropDownList ID="ddlSecurtyProfile" CssClass="form-control" runat="server"></asp:DropDownList>
                             <asp:RequiredFieldValidator CssClass="req" ID="rfv_ddlSecurtyProfile" runat="server" ErrorMessage="Mandatory information (अनिवार्य जानकारी)" ControlToValidate="ddlSecurtyProfile" ForeColor="Red" ValidationGroup="vg_btnSubmit" SetFocusOnError="True" Display="Dynamic" />
                         </div>
-                    </div>                
+                    </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="lblUserId" class="control-label">User Name: </label>
@@ -117,7 +119,7 @@
                     </div>
                 </asp:Panel>
 
-                <div class="row" style="margin-bottom: 15px;">                   
+                <div class="row" style="margin-bottom: 15px;">
                     <div class="col-md-6">
                         <asp:Button ID="btnSubmit" CssClass="btn btn-raised btn-primary" ValidationGroup="vg_btnSubmit" runat="server" Text="SUBMIT (जमा करें)" OnClick="btnSubmit_Click" />
                         <asp:Button ID="btnUpdate" Visible="false" CssClass="btn btn-raised btn-primary" ValidationGroup="vg_btnSubmit" runat="server" Text="UPDATE (अद्यतन करें)" OnClick="btnUpdate_Click" />
@@ -134,7 +136,7 @@
                 <h3 class="panel-title">Search Results </h3>
             </div>
             <div class="panel-body">
-                <asp:GridView ID="grdView_User" runat="server" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="false" Visible="true" >
+                <asp:GridView ID="grdView_User" runat="server" CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="false" Visible="true">
                     <Columns>
                         <asp:TemplateField HeaderText="UserId">
                             <ItemTemplate>
@@ -150,5 +152,5 @@
                 </asp:GridView>
             </div>
         </asp:Panel>
-   </div>
+    </div>
 </asp:Content>

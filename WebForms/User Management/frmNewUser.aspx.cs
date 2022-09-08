@@ -1,5 +1,4 @@
-﻿using SSJY.eDawaKhana.DataObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,18 +6,19 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using eDawaKhana.Common;
 using SSJY.eDawaKhana.Data;
+using SSJY.eDawaKhana.DataObjects;
 
 namespace eDawaKhana.WebForms.User_Management
 {
-    public partial class frmCreateUser : System.Web.UI.Page
+    public partial class frmNewUser : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             #region Validate User
             //if (Session[App_SessionKeys.IsValidUser.ToString()] != null && Convert.ToBoolean(Session[(App_SessionKeys.IsValidUser).ToString()]))
             //{
-                if (!Page.IsPostBack)
-                {
+            if (!Page.IsPostBack)
+            {
                 //        bool isValid = true;
                 //        string menuURL = HttpContext.Current.Request.Url.AbsolutePath;
                 //        //List<AccessRight> accessRights = Session[App_SessionKeys.AccessRights.ToString()] as List<AccessRight>;
@@ -138,4 +138,5 @@ namespace eDawaKhana.WebForms.User_Management
             }
         }
     }
+
 }
