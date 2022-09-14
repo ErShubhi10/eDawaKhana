@@ -15,15 +15,6 @@ namespace eDawaKhana.WebForms.User_Management
     {
 
         /// <summary>
-        /// upModal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upModal;
-
-        /// <summary>
         /// lblModalTitle control.
         /// </summary>
         /// <remarks>
@@ -42,15 +33,6 @@ namespace eDawaKhana.WebForms.User_Management
         protected global::System.Web.UI.WebControls.Label lblModalBody;
 
         /// <summary>
-        /// pnlAdvanceSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlAdvanceSearch;
-
-        /// <summary>
         /// txtSearchUserName control.
         /// </summary>
         /// <remarks>
@@ -67,15 +49,6 @@ namespace eDawaKhana.WebForms.User_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSearch;
-
-        /// <summary>
-        /// pnlSearchCriteria control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSearchCriteria;
 
         /// <summary>
         /// ddlSecurtyProfile control.
@@ -132,13 +105,13 @@ namespace eDawaKhana.WebForms.User_Management
         protected global::System.Web.UI.WebControls.TextBox txtFullName;
 
         /// <summary>
-        /// rfv_txtUserName control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_txtUserName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
         /// txtMobile control.

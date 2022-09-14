@@ -4,7 +4,9 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+      <div class="pagetitle">
+      <h1>Role Details (Add/Edit)</h1>      
+    </div>
     <div class="modal fade" id="myModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -30,14 +32,14 @@
                     <h5 class="card-title">Role Detail</h5>
                     <div class="col-lg-6">
                     <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label">Role Name</label>
-                        <div class="col-sm-10">
+                        <label class="col-sm-3 col-form-label">Role Name</label>
+                        <div class="col-sm-9">
                             <asp:TextBox ID="txtRoleName" runat="server" class="col-sm-8 form-control"></asp:TextBox>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label">Is Active</label>
-                        <div class="col-sm-10">
+                        <label class="col-sm-3 col-form-label">Is Active</label>
+                        <div class="col-sm-9">
                             <asp:CheckBox ID="chkIsActive" runat="server" class="form-check-label" />
                         </div>
                     </div>

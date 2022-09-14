@@ -49,7 +49,9 @@ namespace eDawaKhana.WebForms.User_Management
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            byte[] salt, saltedHash;
+            try
+            {
+                byte[] salt, saltedHash;
             string password = txtPassword.Text.Trim();
             Security security = new Security();
             security.CreatePasswordHash(password, out salt, out saltedHash);
@@ -66,23 +68,50 @@ namespace eDawaKhana.WebForms.User_Management
             user.CreateTs = DateTime.Now;
             user.CreatedByUserId = Convert.ToInt32(Session[App_SessionKeys.UserId.ToString()]);
             DataRepository.UsersProvider.Save(user);
+                lblModalTitle.Text = "Success";
+                lblModalBody.Text = "Record has been updated successfully.";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal('show');", true);
+            }
+            catch (Exception ex)
+            {
+                lblModalTitle.Text = "Errors";
+                lblModalBody.Text = ex.Message;
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal('show');", true);
+                // upModal.Update();
+                return;
+            }
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            Users user = new Users();
-            user = DataRepository.UsersProvider.GetByUserId(Convert.ToInt32(hdnUserId.Value));
-            if (user != null)
+            try
             {
-                user.FullName = txtFullName.Text;
-                user.Emailid = txtEmail.Text.Trim();
-                user.MobileNo = Convert.ToInt64(txtMobile.Text.Trim());
-                user.ModTs = DateTime.Now;
-                DataRepository.UsersProvider.Save(user);
+                Users user = new Users();
+                user = DataRepository.UsersProvider.GetByUserId(Convert.ToInt32(hdnUserId.Value));
+                if (user != null)
+                {
+                    user.FullName = txtFullName.Text;
+                    user.Emailid = txtEmail.Text.Trim();
+                    user.MobileNo = Convert.ToInt64(txtMobile.Text.Trim());
+                    user.ModTs = DateTime.Now;
+                    DataRepository.UsersProvider.Save(user);
+                    lblModalTitle.Text = "Success";
+                    lblModalBody.Text = "Record has been updated successfully.";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal('show');", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblModalTitle.Text = "Errors";
+                lblModalBody.Text = ex.Message;
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal('show');", true);
+                // upModal.Update();
+                return;
             }
         }
         protected void btnChangePassword_Click(object sender, EventArgs e)
         {
+            try { 
             byte[] salt, saltedHash;
             string password = txtPassword.Text.Trim();
             Users user = new Users();
@@ -95,6 +124,18 @@ namespace eDawaKhana.WebForms.User_Management
                 user.SaltedHash = saltedHash;
                 user.ModTs = DateTime.Now;
                 DataRepository.UsersProvider.Save(user);
+                lblModalTitle.Text = "Success";
+                lblModalBody.Text = "Record has been saved successfully.";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal('show');", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblModalTitle.Text = "Errors";
+                lblModalBody.Text = ex.Message;
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal('show');", true);
+                // upModal.Update();
+                return;
             }
         }
 
@@ -122,6 +163,12 @@ namespace eDawaKhana.WebForms.User_Management
                 ddlSecurtyProfile.SelectedValue = user.RoleId.ToString();
                 txtEmail.Text = user.Emailid;
                 txtMobile.Text = user.MobileNo.ToString();
+            }
+            else
+            {
+                lblModalTitle.Text = "Error";
+                lblModalBody.Text = "No user found";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal('show');", true);
             }
         }
 

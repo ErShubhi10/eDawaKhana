@@ -3,132 +3,136 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
-                <ContentTemplate>
-                    <div class="modal-content">
-                        <div class="modal-header" style="background: #b71c1c; color: #fff; padding-bottom: 15px; padding-top: 15px;">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color: #fff; opacity: 1;">&times;</button>
-                            <h5 class="modal-title">
-                                <asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label></h5>
-
-                        </div>
-                        <div class="modal-body">
-                            <asp:Label ID="lblModalBody" runat="server" Text=""></asp:Label>
-                        </div>
-                        <div class="modal-footer" style="border-top: 1px #eee solid; padding: 5px;">
-
-                            <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Close (बंद करे)</button>
-                        </div>
-                    </div>
-                </ContentTemplate>
-            </asp:UpdatePanel>
-        </div>
+    <div class="pagetitle">
+      <h1>USER (Add/Edit)</h1>      
     </div>
 
-    <h3 class="page-header">User Management (उपयोगकर्ता प्रबंधन)</h3>
-    <div class="row">
-
-        <asp:Panel runat="server" ID="pnlAdvanceSearch" CssClass="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Search by UserId (उपयोगकर्ता आईडी द्वारा खोजें)</h3>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="lblUserId" class="control-label">User Id: (उपयोगकर्ता आईडी)</label>
-                            <asp:TextBox ID="txtSearchUserName" CssClass="form-control" placeholder="UserId" runat="server"></asp:TextBox>
-                        </div>
-                    </div>
+    <div class="modal fade" id="myModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <asp:Label runat="server" ID="lblModalTitle" CssClass="modal-title">Message</asp:Label></h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <asp:Button ID="btnSearch" CssClass="btn btn-raised btn-danger" runat="server" Text="Search (खोज)" OnClick="btnSearch_Click" />
-                    </div>
+                <div class="modal-body">
+                    <asp:Label runat="server" ID="lblModalBody">Message Body</asp:Label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-xs" data-dismiss="modal">Close</button>
                 </div>
             </div>
-        </asp:Panel>
+        </div>
+    </div>
+    <section class="section">
+        <div class="row">
 
-
-        <asp:Panel runat="server" ID="pnlSearchCriteria" CssClass="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Create new USER </h3>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="lblSecurtyProfile" class="control-label">Role : </label>
-                            <asp:DropDownList ID="ddlSecurtyProfile" CssClass="form-control" runat="server"></asp:DropDownList>
-                            <asp:RequiredFieldValidator CssClass="req" ID="rfv_ddlSecurtyProfile" runat="server" ErrorMessage="Mandatory information (अनिवार्य जानकारी)" ControlToValidate="ddlSecurtyProfile" ForeColor="Red" ValidationGroup="vg_btnSubmit" SetFocusOnError="True" Display="Dynamic" />
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Search by UserId (उपयोगकर्ता आईडी द्वारा खोजें)</h5>
+                    <div class="col-lg-8">
+                        <div class="row mb-3">
+                            <label class="col-sm-3 col-form-label">User Id: (उपयोगकर्ता आईडी)</label>
+                            <div class="col-sm-6">
+                                <asp:TextBox ID="txtSearchUserName" runat="server" class="col-sm-8 form-control"></asp:TextBox>
+                            </div> <div class="col-sm-3">  <asp:Button ID="btnSearch" runat="server" class="btn btn-primary" Text="Search (खोज)" OnClick="btnSearch_Click" /></div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="lblUserId" class="control-label">User Name: </label>
-                            <asp:HiddenField ID="hdnUserId" runat="server" />
-                            <asp:TextBox ID="txtUserName" CssClass="form-control " placeholder="User Id" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator CssClass="req" ID="rfv_txtUserID" runat="server" ErrorMessage="Mandatory information (अनिवार्य जानकारी)" ControlToValidate="txtUserName" ForeColor="Red" ValidationGroup="vg_btnSubmit" SetFocusOnError="True" Display="Dynamic" />
+                        <div class="text-left">
+                          
+
                         </div>
                     </div>
 
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="lblUserName" class="control-label">Full Name: </label>
-                            <asp:TextBox ID="txtFullName" CssClass="form-control " placeholder="User Name" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator CssClass="req" ID="rfv_txtUserName" runat="server" ErrorMessage="Mandatory information (अनिवार्य जानकारी)" ControlToValidate="txtFullName" ForeColor="Red" ValidationGroup="vg_btnSubmit" SetFocusOnError="True" Display="Dynamic" />
-                        </div>
-                    </div>
-                </div>
+                    <!-- End Horizontal Form -->
 
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="lblMobile" class="control-label">Mobile No.: </label>
-                            <asp:TextBox ID="txtMobile" CssClass="form-control " placeholder="Mobile No." runat="server" onkeypress="return isNumber(event);" ondrop="return false;" onpaste="return false;" MaxLength="10"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="lblEmail" class="control-label">Email Id: </label>
-                            <asp:TextBox ID="txtEmail" CssClass="form-control " placeholder="Email Id" runat="server" MaxLength="100"></asp:TextBox>
-                            <asp:RegularExpressionValidator ID="rev_txtEmail" CssClass="req" ControlToValidate="txtEmail" runat="server" ErrorMessage="You have entered wrong EmailId (आपने गलत ईमेल दर्ज किया है)" ForeColor="Red" ValidationGroup="vg_btnSubmit" SetFocusOnError="True" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                        </div>
-                    </div>
-                </div>
-                <asp:Panel runat="server" ID="pnlPassword" CssClass="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="lblPassword" class="control-label">Password:</label>
-                            <asp:TextBox ID="txtPassword" CssClass="form-control " TextMode="Password" placeholder="Password" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator CssClass="req" ID="rfv_txtPassword" runat="server" ErrorMessage="Mandatory information (अनिवार्य जानकारी)" ControlToValidate="txtPassword" ForeColor="Red" ValidationGroup="vg_btnSubmit" SetFocusOnError="True" Display="Dynamic" />
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="lblConfirmPassword" class="control-label">Confirm Password:</label>
-                            <asp:TextBox ID="txtConfirmPassword" CssClass="form-control " TextMode="Password" placeholder="Password" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator CssClass="req" ID="rfv_txtConfirmPassword" runat="server" ErrorMessage="Mandatory information (अनिवार्य जानकारी)" ControlToValidate="txtConfirmPassword" ForeColor="Red" ValidationGroup="vg_btnSubmit" SetFocusOnError="True" Display="Dynamic" />
-                            <asp:CompareValidator ID="cmpConfirmPassword" runat="server" ForeColor="Red" ErrorMessage="Your password not matched Please fill again" ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword" Operator="Equal"></asp:CompareValidator>
-                        </div>
-                    </div>
-                </asp:Panel>
-
-                <div class="row" style="margin-bottom: 15px;">
-                    <div class="col-md-6">
-                        <asp:Button ID="btnSubmit" CssClass="btn btn-raised btn-primary" ValidationGroup="vg_btnSubmit" runat="server" Text="SUBMIT (जमा करें)" OnClick="btnSubmit_Click" />
-                        <asp:Button ID="btnUpdate" Visible="false" CssClass="btn btn-raised btn-primary" ValidationGroup="vg_btnSubmit" runat="server" Text="UPDATE (अद्यतन करें)" OnClick="btnUpdate_Click" />
-                        <asp:Button ID="btnChangePassword" Visible="false" CssClass="btn btn-raised btn-primary" OnClick="btnChangePassword_Click" runat="server" Text="Change Password (पासवर्ड बदलें)" UseSubmitBehavior="False" />
-                        <asp:HiddenField runat="server" ID="togglebtnChnagePassword" Value="1" />
-                        <asp:Button ID="btnReset" CssClass="btn btn-raised btn-danger" ValidationGroup="Group1" runat="server" Text="Reset (रीसेट करें)" OnClick="btnReset_Click" />
-
-                    </div>
                 </div>
             </div>
-        </asp:Panel>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Create new USER</h5>
+                    <div class="col-lg-12">
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="col-sm-3 col-form-label">Role :</label>
+                                <div class="col-sm-9">
+                                    <asp:DropDownList ID="ddlSecurtyProfile" CssClass="col-sm-8 form-control" runat="server"></asp:DropDownList>
+                                    <asp:RequiredFieldValidator CssClass="req" ID="rfv_ddlSecurtyProfile" runat="server" ErrorMessage="Mandatory information (अनिवार्य जानकारी)" ControlToValidate="ddlSecurtyProfile" ForeColor="Red" ValidationGroup="vg_btnSubmit" SetFocusOnError="True" Display="Dynamic" />
+                                </div>
+                            </div>
+                            </div>
+                       
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="col-sm-3 col-form-label">User Name :</label>
+                                <div class="col-sm-9">
+                                    <asp:HiddenField ID="hdnUserId" runat="server" />
+                                    <asp:TextBox ID="txtUserName" CssClass="col-sm-8 form-control" placeholder="User Id" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator CssClass="req" ID="rfv_txtUserID" runat="server" ErrorMessage="Mandatory information (अनिवार्य जानकारी)" ControlToValidate="txtUserName" ForeColor="Red" ValidationGroup="vg_btnSubmit" SetFocusOnError="True" Display="Dynamic" />
+
+                                </div> </div>
+                            <div class="col-md-6">
+                                <label class="col-sm-3 col-form-label">Full Name :</label>
+                                <div class="col-sm-9">
+                                    <asp:TextBox ID="txtFullName" CssClass="col-sm-8 form-control" placeholder="Full Name" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator CssClass="req" ID="RequiredFieldValidator1" runat="server" ErrorMessage="Mandatory information (अनिवार्य जानकारी)" ControlToValidate="txtFullName" ForeColor="Red" ValidationGroup="vg_btnSubmit" SetFocusOnError="True" Display="Dynamic" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="col-sm-3 col-form-label">Mobile :</label>
+                                <div class="col-sm-9">
+                                    <asp:TextBox ID="txtMobile" CssClass="col-sm-8 form-control" placeholder="Mobile" runat="server" onkeypress="return isNumber(event);" ondrop="return false;" onpaste="return false;" MaxLength="10"></asp:TextBox>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="col-sm-3 col-form-label">Full Name :</label>
+                                <div class="col-sm-9">
+                                    <asp:TextBox ID="txtEmail" CssClass="col-sm-8 form-control" placeholder="Email" runat="server"></asp:TextBox>
+                                    <asp:RegularExpressionValidator ID="rev_txtEmail" CssClass="req" ControlToValidate="txtEmail" runat="server" ErrorMessage="You have entered wrong EmailId (आपने गलत ईमेल दर्ज किया है)" ForeColor="Red" ValidationGroup="vg_btnSubmit" SetFocusOnError="True" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                </div>
+                            </div>
+                        </div>
+                        <asp:Panel runat="server" ID="pnlPassword">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="col-sm-3 col-form-label">Password :</label>
+                                    <div class="col-sm-9">
+                                        <asp:TextBox ID="txtPassword" CssClass="col-sm-8 form-control" placeholder="Password" runat="server"></asp:TextBox>
+                                        <asp:RequiredFieldValidator CssClass="req" ID="rfv_txtPassword" runat="server" ErrorMessage="Mandatory information (अनिवार्य जानकारी)" ControlToValidate="txtPassword" ForeColor="Red" ValidationGroup="vg_btnSubmit" SetFocusOnError="True" Display="Dynamic" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="col-sm-3 col-form-label">Confirm Password :</label>
+                                    <div class="col-sm-9">
+                                        <asp:TextBox ID="txtConfirmPassword" CssClass="col-sm-8 form-control" placeholder="Confirm Password" runat="server"></asp:TextBox>
+                                        <asp:RequiredFieldValidator CssClass="req" ID="rfv_txtConfirmPassword" runat="server" ErrorMessage="Mandatory information (अनिवार्य जानकारी)" ControlToValidate="txtConfirmPassword" ForeColor="Red" ValidationGroup="vg_btnSubmit" SetFocusOnError="True" Display="Dynamic" />
+                                        <asp:CompareValidator ID="cmpConfirmPassword" runat="server" ForeColor="Red" ErrorMessage="Your password not matched Please fill again" ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword" Operator="Equal"></asp:CompareValidator>
+                                    </div>
+                                </div>
+                            </div>
+                        </asp:Panel>
+                        <div class="text-left">
+
+                            <asp:Button ID="btnSubmit" CssClass="btn btn-primary" ValidationGroup="vg_btnSubmit" runat="server" Text="SUBMIT (जमा करें)" OnClick="btnSubmit_Click" />
+                            <asp:Button ID="btnUpdate" Visible="false" CssClass="btn btn-primary" ValidationGroup="vg_btnSubmit" runat="server" Text="UPDATE (अद्यतन करें)" OnClick="btnUpdate_Click" />
+                            <asp:Button ID="btnChangePassword" Visible="false" CssClass="btn btn-primary" OnClick="btnChangePassword_Click" runat="server" Text="Change Password (पासवर्ड बदलें)" UseSubmitBehavior="False" />
+                            <asp:HiddenField runat="server" ID="togglebtnChnagePassword" Value="1" />
+                            <asp:Button ID="btnReset" CssClass="btn btn-danger" ValidationGroup="Group1" runat="server" Text="Reset (रीसेट करें)" OnClick="btnReset_Click" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Search Result</h5>
+                    <div class="col-lg-12"> 
         <asp:Panel runat="server" ID="pnlSearch" CssClass="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">Search Results </h3>
@@ -149,6 +153,13 @@
                     </Columns>
                 </asp:GridView>
             </div>
-        </asp:Panel>
-    </div>
+        </asp:Panel></div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
 </asp:Content>
