@@ -1,12 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebForms/Admin.Master" AutoEventWireup="true" CodeBehind="frmRole.aspx.cs" Inherits="eDawaKhana.WebForms.User_Management.frmRole" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript">
-        function displayPopup() {
-            debugger;
-            $('#myModal').modal('show');
-        }
-    </script>
+   
 
 
 </asp:Content>
@@ -56,6 +51,7 @@
                             <asp:Button ID="btnUpdate" runat="server" class="btn btn-primary" Text="Update" OnClick="btnUpdate_Click" Visible="false" />
                             <asp:Button ID="btnReset" runat="server" class="btn btn-secondary" Text="Reset" OnClick="btnReset_Click" />
 
+                            <input type="button" value="POPUP" class="btn btn-primary" onclick="displayPopup()" />
                         </div>
 
                         <!-- End Horizontal Form -->
@@ -100,4 +96,12 @@
             </div>
         </div>
     </section>
+
+     <script type="text/javascript">
+
+         function displayPopup() {
+             debugger;
+             $('#myModal').modal("show");
+         }
+     </script>
 </asp:Content>
