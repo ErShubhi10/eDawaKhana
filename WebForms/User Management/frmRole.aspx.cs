@@ -96,15 +96,14 @@ namespace eDawaKhana.WebForms.User_Management
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
-        {        
-
+        {     
             try
             {
                 if (ViewState["ID"] != null)
                 {
                     int roleId = Convert.ToInt32(ViewState["ID"].ToString());
                     UserRoles role = new UserRoles();
-                    int count = DataRepository.UserRolesProvider.GetAll().FindAll(x => x.RoleName == txtRoleName.Text.Trim() && x.RoleId!= roleId).Count;
+                    int count = DataRepository.UserRolesProvider.GetAll().FindAll(x => x.RoleName.ToLower() == txtRoleName.Text.Trim().ToLower() && x.RoleId!= roleId).Count;
                     if (count == 0)
                     {
                         role =DataRepository.UserRolesProvider.GetByRoleId(roleId);
@@ -154,37 +153,33 @@ namespace eDawaKhana.WebForms.User_Management
         {
             try 
             {
+                UserRoles role = new UserRoles();
+                int count = DataRepository.UserRolesProvider.GetAll().FindAll(x => x.RoleName.ToLower() == txtRoleName.Text.Trim().ToLower()).Count;
+                if (count == 0)
+                {
+                    role.RoleName = txtRoleName.Text.Trim();
+                    role.IsActive = chkIsActive.Checked;
+                    role.CreateTs = DateTime.Now;
+                    role.ModTs = DateTime.Now;
+                    role.CreatedByUserId = 1;
+                    DataRepository.UserRolesProvider.Save(role);
 
-                lblModalTitle.Text = "Errors";
-                lblModalBody.Text = "Role Name is already exist.";
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "displayPopup();", true);
-                //UserRoles role = new UserRoles();
-                //int count = DataRepository.UserRolesProvider.GetAll().FindAll(x => x.RoleName == txtRoleName.Text.Trim()).Count;
-                //if (count == 0)
-                //{
-                //    role.RoleName = txtRoleName.Text.Trim();
-                //    role.IsActive = chkIsActive.Checked;
-                //    role.CreateTs = DateTime.Now;
-                //    role.ModTs = DateTime.Now;
-                //    role.CreatedByUserId = 1;
-                //    DataRepository.UserRolesProvider.Save(role);
+                    bindGrid();
 
-                //    bindGrid();
+                    lblModalTitle.Text = "Success";
+                    lblModalBody.Text = "Record has been saved successfully.";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal('show');", true);
 
-                //    lblModalTitle.Text = "Success";
-                //    lblModalBody.Text = "Record has been saved successfully.";
-                //    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "displayPopup()", true);
-
-                //    return;
-                //}
-                //else
-                //{
-                //    lblModalTitle.Text = "Errors";
-                //    lblModalBody.Text = "Role Name is already exist.";
-                //    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
-                //    // upModal.Update();
-                //    return;
-                //}
+                    return;
+                }
+                else
+                {
+                    lblModalTitle.Text = "Errors";
+                    lblModalBody.Text = "Role Name is already exist.";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal('show');", true);
+                    // upModal.Update();
+                    return;
+                }
             } catch(Exception ex)
             {
                 lblModalTitle.Text = "Errors";
