@@ -46,6 +46,32 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching">
+      <HintPath>E:\Projects\AKTUERPWeb 01012020\AKTU.AKTUERP\AKTUERP.UILayer\AKTUERP\bin\Microsoft.Practices.EnterpriseLibrary.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography">
+      <HintPath>E:\Projects\AKTUERPWeb 01012020\AKTU.AKTUERP\AKTUERP.UILayer\AKTUERP\bin\Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=e44a2bc38ed2c13c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Projects\AKTUERPWeb 01012020\AKTU.AKTUERP\AKTUERP.UILayer\AKTUERP\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>E:\Projects\AKTUERPWeb 01012020\AKTU.AKTUERP\AKTUERP.UILayer\AKTUERP\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Security.Cryptography">
+      <HintPath>E:\Projects\AKTUERPWeb 01012020\AKTU.AKTUERP\AKTUERP.UILayer\AKTUERP\bin\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>E:\Projects\AKTUERPWeb 01012020\AKTU.AKTUERP\AKTUERP.UILayer\AKTUERP\bin\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Projects\AKTUERPWeb 01012020\AKTU.AKTUERP\AKTUERP.UILayer\AKTUERP\bin\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>E:\Projects\AKTUERPWeb 01012020\AKTU.AKTUERP\AKTUERP.UILayer\AKTUERP\bin\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
     <Reference Include="SSJY.eDawaKhana.Data">
       <HintPath>..\bin\SSJY.eDawaKhana.Data.dll</HintPath>
     </Reference>
@@ -102,6 +128,8 @@
     <Content Include="assets\img\slides-1.jpg" />
     <Content Include="assets\img\slides-2.jpg" />
     <Content Include="assets\img\slides-3.jpg" />
+    <Content Include="assets\js\jquery.js" />
+    <Content Include="assets\js\jquery.min.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="assets\scss\Readme.txt" />
     <Content Include="assets\vendor\apexcharts\apexcharts.min.js" />
@@ -457,6 +485,7 @@
     <Content Include="assets\vendor\tinymce\composer.json" />
     <Content Include="assets\vendor\tinymce\package.json" />
     <Content Include="assets\vendor\tinymce\README.md" />
+    <Content Include="assets\js\jquery.min.map" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -57,6 +57,8 @@ namespace eDawaKhana.WebForms.User_Management
             user.Salt = salt;
             user.SaltedHash = saltedHash;
             user.IsActive = true;
+            user.UserName= txtUserName.Text.Trim();
+            user.RoleId = Convert.ToInt32(ddlSecurtyProfile.SelectedValue);
             user.FullName = txtFullName.Text;
             user.Emailid = txtEmail.Text.Trim();
             user.MobileNo = Convert.ToInt64(txtMobile.Text.Trim());
